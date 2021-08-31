@@ -14,5 +14,5 @@ func main() {
 }
 
 func hello(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "<h1>Hello galera devops!!!! Teste top 2</h1>")
+	fmt.Fprintf(w, "<h1>Hello galera devops!!!! Teste top teste 3</h1>")
 }
