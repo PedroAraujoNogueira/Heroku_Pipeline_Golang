@@ -1,0 +1,53 @@
+-> o Heroku é um PaaS(platform as a service), ou seja, precisamos nos preocupar menos com 
+a parte de infraestrutura. Para criarmos uma pipeline usando Heroku podemos seguir os 
+passos adiante: 
+
+1. Criar uma conta no Heroku.
+
+2. Criar Procfile. O Procfile é um arquivo que você fala para o Heroku qual linguagem e 
+configurações estamos usando no nosso projeto. Esse arquivo vai mudar dependendo do seu
+Projeto, então procure ver como funciona a configuração desse arquivo conforme as 
+configurações da linguagem utilizada.
+
+3. Baixar o CLI do Heroku. Podemos usar esse link:
+https://devcenter.heroku.com/articles/heroku-cli#download-and-install
+A instalação é bem simples, no Linux, por exemplo, eu somente executei o seguinte comando:
+sudo snap install --classic heroku
+
+4. Após baixado o CLI do Heroku podemos usar no terminal o comando: 
+"heroku apps:create nomeDaAplicacao"
+Quando fizer isso, note que ele vai gerar uma URL. Por enquanto, nessa URL vai ter apenas 
+o layout de boas vindas.
+
+5. Após isso podemos fazer o fluxo normal dos comandos do Git, exceto que no ultimo comando
+ao invés de fazermos, por exemplo, "git push origin main", vamos fazer "git push heroku main".
+Quando fizermos isso, será enviado nossas alterações para o GitHub e também para o Heroku, que
+vai fazer o deploy da nossa aplicação. Então podemos acessar novamente a URL gerada no passo 3
+e veremos que nossa aplicação estará funcionando. 
+Vá na sua conta do Heroku e veja que foi criada uma aplicação com o nome que você deu
+no comando 3.
+
+6. Criar Pipeline. Na sua conta do Heroku vá: 
+https://dashboard.heroku.com/apps -> New(botão no canto superior direito) -> Create new 
+pipeline -> Pipeline name(escolha o nome da sua pipeline) -> Connect to GitHub(connect 
+com seu repositório e coloque o nome do repositório que vai ter sua pipeline, 
+por exemplo, heroku-pipeline-golang). -> Clique em Connect -> Create Pipeline.
+
+7. Você será direcionado para uma página onde podemos configurar os ambientes de 
+staging e production. Para isso faça:
+7.1. Em staging clique em "Add app" e escolha o nome da aplicação definida no item 3 
+desse tutorial.
+7.2. Em production clique em "Add app" e escolha um nome para sua aplicação de 
+produção. 
+7.3. Clicando em "Open app" podemos ver nossa aplicação.
+7.4. Para passarmos a aplicação de staging para produção podemos clicar em 
+"Promote to production", após isso clique novamente no "Open app" de production e veja que 
+está igual ao ambiente de staging.
+
+8. Configurar review das suas aplicações para criar uma aplicação toda vez que fizermos um 
+Pull Request.
+8.1. Na tela principal da sua pipeline, clique em Enable Review Apps.
+8.2. Clique em Create new review apps for new pull requests automatically(para criar 
+uma aplicação toda vez que fizermos um Pull Request) e em Destroy stale review apps
+automatically(para destruir sua aplicação automaticamente após ela ter sido mergeada ou
+após o um período específico de dias).
