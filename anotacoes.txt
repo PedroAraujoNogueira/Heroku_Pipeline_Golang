@@ -51,3 +51,9 @@ Pull Request.
 uma aplicação toda vez que fizermos um Pull Request) e em Destroy stale review apps
 automatically(para destruir sua aplicação automaticamente após ela ter sido mergeada ou
 após o um período específico de dias).
+
+9. Criar um ambiente específico para cada PR feito.
+9.1. Faça uma branch no Git e faça Seu PR, então você poderá observar no próprio Github 
+que ele vai preparar um ambiente para seu PR. Para ver o ambiente basta usar o link gerado
+pelo heroku como por exemplo heroku-pipel-teste-ebrvvgpr8tq.
+
